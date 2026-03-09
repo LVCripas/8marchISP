@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ 3<!DOCTYPE html>
 <html lang="ru">
 <head>
 <meta charset="UTF-8" />
@@ -405,22 +405,22 @@ const videoSources = {
 }
 
 // ----- ФОТОГРАФИИ ДЛЯ КАРТОЧЕК -----
-// Укажите правильные пути к изображениям (папка photos, имена файлов)
-const photoSources = {
-  "Лера": "photos/Лера.jpg",
-  "Света": "photos/Света.jpg",
-  "Марианна": "photos/Марианна.jpg",
-  "Наташа": "photos/Наташа.jpg",
-  "Геля": "photos/Ангелина.jpg",        // или Ангелина.jpg — уточните
-  "Диана": "photos/Диана.jpg",
-  "Лилиана": "photos/Лилиана.jpg",
-  "Настя": "photos/Настя.jpg",
-  "Ульяна": "photos/Ульяна.jpg",
-  "Аня": "photos/Аня.jpg",
-  "Маша": "photos/Маша.jpg",
-  "Лиза": "photos/Лиза.jpg",
-  "Кира": "photos/Кира.jpg",
-  "Юлия Александровна": "photos/Юля.jpg" // или Юля.jpg
+// Укажите правильные пути к изображениям (папка photo, имена файлов)
+const photoources = {
+  "Лера": "photo/Лера.jpg",
+  "Света": "photo/Света.jpg",
+  "Марианна": "photo/Марианна.jpg",
+  "Наташа": "photo/Наташа.jpg",
+  "Геля": "photo/Ангелина.jpg",        // или Ангелина.jpg — уточните
+  "Диана": "photo/Диана.jpg",
+  "Лилиана": "photo/Лилиана.jpg",
+  "Настя": "photo/Настя.jpg",
+  "Ульяна": "photo/Ульяна.jpg",
+  "Аня": "photo/Аня.jpg",
+  "Маша": "photo/Маша.jpg",
+  "Лиза": "photo/Лиза.jpg",
+  "Кира": "photo/Кира.jpg",
+  "Юлия Александровна": "photo/Юля.jpg" // или Юля.jpg
 }
 
 // ---------- Музыка без кнопки ----------
@@ -499,7 +499,7 @@ girls.forEach(name => {
   // Добавляем аватар с фоновым изображением, если есть фото
   const avatarDiv = document.createElement('div');
   avatarDiv.className = 'avatar';
-  const photoPath = photoSources[name];
+  const photoPath = photoources[name];
   if (photoPath) {
     avatarDiv.style.backgroundImage = `url('${photoPath}')`;
     avatarDiv.style.backgroundSize = 'cover';
