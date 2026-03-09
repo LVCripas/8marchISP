@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>С 8 Марта — видео + фото девушек</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{box-sizing:border-box}
+
+body{
+margin:0;
+font-family:'Inter',sans-serif;
+color:#1d1d1f;
+background:linear-gradient(180deg,#f9f1f4,#f6efe9,#f7efe9);
+background-size:300% 300%;
+animation:bgMove 16s ease infinite;
+overflow-x:hidden;
+}
+
+@keyframes bgMove{
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
+}
+
+/* --- LIQUID GLASS EFFECT --- */
+
+.liquidGlass{
+position:relative;
+background:rgba(255,255,255,0.18);
+backdrop-filter:blur(30px) saturate(180%);
+-webkit-backdrop-filter:blur(30px) saturate(180%);
+border-radius:28px;
+border:1px solid rgba(255,255,255,0.45);
+box-shadow:
+0 20px 40px rgba(0,0,0,0.15),
+inset 0 1px 0 rgba(255,255,255,0.6),
+inset 0 -2px 8px rgba(255,255,255,0.25);
+overflow:hidden;
+}
+
+.liquidGlass::before{
+content:"";
+position:absolute;
+inset:0;
+border-radius:inherit;
+padding:1px;
+background:linear-gradient(120deg,rgba(255,255,255,0.9),rgba(255,255,255,0.2),rgba(255,255,255,0.6));
+-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+-webkit-mask-composite:xor;
+mask-composite:exclude;
+pointer-events:none;
+}
+
+.liquidGlass::after{
+content:"";
+position:absolute;
+inset:0;
+border-radius:inherit;
+background:radial-gradient(circle at 30% 20%,rgba(255,255,255,0.45),transparent 60%);
+pointer-events:none;
+}
+
+header{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:40px;
+}
+
+.hero{
+max-width:760px;
+padding:60px;
+text-align:center;
+animation:fadeUp 1.4s ease;
+}
+
+h1{
+font-size:72px;
+letter-spacing:-2px;
+margin:0 0 20px 0;
+font-weight:600;
+}
+
+p{
+font-size:18px;
+line-height:1.6;
+opacity:0.85;
+}
+
+button{
+margin-top:22px;
+padding:14px 24px;
+border-radius:40px;
+border:1px solid rgba(255,255,255,0.6);
+background:rgba(255,255,255,0.35);
+backdrop-filter:blur(20px);
+font-size:15px;
+cursor:pointer;
+transition:0.35s;
+}
+
+button:hover{
+transform:scale(1.07);
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+.section{
+padding:90px 20px;
+text-align:center;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+gap:28px;
+max-width:1100px;
+margin:auto;
+}
+
+.card{
+padding:20px;
+cursor:pointer;
+transition:0.35s;
+}
+
+.card:hover{
+transform:translateY(-12px) scale(1.04);
+}
+
+.avatar{
+height:170px;
+border-radius:18px;
+background:linear-gradient(135deg,#f2d6de,#f7c9d9); /* fallback, если нет фото */
+background-size: cover;
+background-position: center;
+margin-bottom:14px;
+}
+
+.hidden{display:none}
+
+.profile{
+max-width:720px;
+margin:auto;
+padding:40px;
+animation:fadeUp 0.9s ease;
+text-align:center;
+}
+
+/* Вертикальное видео как TikTok */
+.videoWrapper{
+width:100%;
+max-width:320px;
+aspect-ratio:9/16;
+margin:25px auto;
+border-radius:22px;
+overflow:hidden;
+background:black;
+}
+
+.videoWrapper video{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.back{
+margin-bottom:20px;
+}
+
+ul{
+text-align:left;
+line-height:1.9;
+max-width:400px;
+margin:20px auto;
+}
+
+.giftLocation{
+margin-top:20px;
+font-weight:500;
+font-size:18px;
+}
+
+@keyframes fadeUp{
+from{opacity:0;transform:translateY(40px)}
+to{opacity:1;transform:translateY(0)}
+}
+
+/* падающие цветы */
+.flower{
+position:fixed;
+top:-40px;
+font-size:20px;
+animation:fall linear forwards;
+pointer-events:none;
+}
+
+@keyframes fall{
+to{transform:translateY(110vh) rotate(360deg)}
+}
+
+/* Кнопка управления музыкой ПОЛНОСТЬЮ УДАЛЕНА */
+/* Мобильная адаптация */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 48px; /* Поменьше, чтобы помещалось на экране */
+  }
+
+  .hero {
+    padding: 30px 20px; /* Уменьшаем поля */
+  }
+
+  .hero p {
+    font-size: 16px; /* Чуть мельче текст */
+  }
+
+  .section {
+    padding: 60px 15px;
+  }
+
+  .cards {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Карточки уже */
+    gap: 15px;
+  }
+
+  .card {
+    padding: 15px;
+  }
+
+  .avatar {
+    height: 140px; /* Фото чуть меньше */
+  }
+
+  .profile {
+    padding: 30px 20px;
+  }
+
+  .videoWrapper {
+    max-width: 260px; /* Видео уже, чтобы не вылезало */
+  }
+
+  button {
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+
+  .back {
+    font-size: 16px; /* Кнопка назад удобнее */
+  }
+
+  .giftLocation {
+    font-size: 16px; /* Текст подсказки читаем */
+  }
+
+  /* Цветы на телефонах мельче, чтобы не перекрывать */
+  .flower {
+    font-size: 16px;
+  }
+}
+
+/* Для совсем маленьких экранов (до 400px) */
+@media (max-width: 400px) {
+  h1 {
+    font-size: 40px;
+  }
+
+  .hero {
+    padding: 20px 15px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr; /* Одна колонка */
+  }
+
+  .avatar {
+    height: 120px;
+  }
+
+  .videoWrapper {
+    max-width: 220px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Фоновый аудиоплеер (скрытый) -->
+<audio id="bgMusic" loop preload="auto">
+  <source src="Владимир Курский - С 8-м марта.mp3" type="audio/mpeg">
+  <!-- замените на свой файл -->
+</audio>
+
+<div id="mainPage">
+
+<header>
+
+<div class="hero liquidGlass">
+
+<h1>С 8 Марта 💐</h1>
+
+<p>
+Дорогие девочки! Пусть эта весна принесёт вам вдохновение,
+радость и много прекрасных моментов. Спасибо, что делаете
+нашу группу такой тёплой и дружной.
+</p>
+
+<button onclick="showWish()">Показать пожелание ✨</button>
+
+<p id="wish"></p>
+
+</div>
+
+</header>
+
+<section class="section">
+
+<h2>Наши одногруппницы</h2>
+
+<div class="cards" id="cards"></div>
+
+</section>
+
+</div>
+
+<div id="profilePage" class="hidden">
+
+<div class="profile liquidGlass">
+
+<button class="back" onclick="goBack()">← Назад</button>
+
+<h1 id="profileName"></h1>
+
+<!-- Видеоплеер: источник будет подставлен позже -->
+<div class="videoWrapper">
+<video id="profileVideo" controls playsinline preload="metadata"></video>
+</div>
+
+<h3>Пожелание</h3>
+
+<p id="personalWish" style="max-width:500px;margin:20px auto;font-size:18px;line-height:1.7;"></p>
+
+<button onclick="showGift()">Узнать где подарок 🎁</button>
+
+<div id="giftText" class="giftLocation">
+Нажми на кнопку, чтобы узнать где подарок...
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+const girls=[
+"Лера","Света","Марианна","Наташа","Геля","Диана","Лилиана","Настя","Ульяна","Аня","Маша","Лиза","Кира","Юлия Александровна"
+]
+
+const wishes=[
+"Пусть каждый день приносит радость 🌸",
+"Пусть исполняются мечты ✨",
+"Много счастья и вдохновения 💐",
+"Пусть весна будет яркой 🌷",
+"Улыбок и прекрасного настроения 🌼"
+]
+
+const personalWishes={
+"Лера":"Пусть эта весна принесёт тебе вдохновение, лёгкость и много счастливых моментов. Пусть каждый день радует новыми улыбками и приятными событиями 🌸",
+"Света":"Желаю тебе много радости, тёплых встреч и исполнения самых заветных желаний. Пусть весна будет яркой и счастливой ✨",
+"Марианна":"Пусть в жизни будет больше приятных сюрпризов, красивых моментов и людей, рядом с которыми хочется улыбаться 🌷",
+"Наташа":"Пусть каждый день приносит что‑то хорошее: улыбки, вдохновение и маленькие радости, которые делают жизнь ярче 💐",
+"Геля":"Желаю тебе весеннего настроения, тепла, вдохновения и чтобы мечты постепенно становились реальностью 🌸",
+"Диана":"Пусть рядом всегда будут люди, которые поддерживают, а каждый день дарит новые поводы для улыбки ✨",
+"Лилиана":"Желаю много счастья, вдохновения и тёплых моментов, которые будут делать каждый день особенным 🌷",
+"Настя":"Пусть весна подарит тебе много радости, хорошего настроения и приятных событий 💐",
+"Ульяна":"Желаю, чтобы каждый день приносил новые идеи, вдохновение и много улыбок 🌸",
+"Аня":"Пусть в жизни будет больше ярких моментов, хороших людей и счастливых воспоминаний ✨",
+"Маша":"Желаю тебе весеннего тепла, радости и чтобы все планы и мечты постепенно сбывались 🌷",
+"Лиза":"Пусть каждый день будет наполнен улыбками, вдохновением и приятными неожиданностями 💐",
+"Кира":"Желаю тебе лёгкости, радости и чтобы эта весна принесла много счастливых моментов 🌸",
+"Юлия Александровна":"Желаем вам прекрасного настроения, вдохновения и благодарных студентов. Пусть весна принесёт радость, тепло и много поводов для улыбок 🌷"
+}
+
+// ----- КАРТА ВИДЕО ДЛЯ КАЖДОЙ ДЕВУШКИ -----
+const videoSources = {
+  "Лера": "videos/Лера.mp4",
+  "Света": "videos/Света.mp4",
+  "Марианна": "videos/Марианна.mp4",
+  "Наташа": "videos/Наташа.mp4",
+  "Геля": "videos/Ангелина.mp4",
+  "Диана": "videos/Диана.mp4",
+  "Лилиана": "videos/Лилиана.mp4",
+  "Настя": "videos/Настя.mp4",
+  "Ульяна": "videos/Ульяна.mp4",
+  "Аня": "videos/Аня.mp4",
+  "Маша": "videos/Маша.mp4",
+  "Лиза": "videos/Лиза.mp4",
+  "Кира": "videos/Кира.mp4",
+  "Юлия Александровна": "videos/Юля.mp4"
+}
+
+// ----- ФОТОГРАФИИ ДЛЯ КАРТОЧЕК -----
+// Укажите правильные пути к изображениям (папка photos, имена файлов)
+const photoSources = {
+  "Лера": "photos/Лера.jpg",
+  "Света": "photos/Света.jpg",
+  "Марианна": "photos/Марианна.jpg",
+  "Наташа": "photos/Наташа.jpg",
+  "Геля": "photos/Ангелина.jpg",        // или Ангелина.jpg — уточните
+  "Диана": "photos/Диана.jpg",
+  "Лилиана": "photos/Лилиана.jpg",
+  "Настя": "photos/Настя.jpg",
+  "Ульяна": "photos/Ульяна.jpg",
+  "Аня": "photos/Аня.jpg",
+  "Маша": "photos/Маша.jpg",
+  "Лиза": "photos/Лиза.jpg",
+  "Кира": "photos/Кира.jpg",
+  "Юлия Александровна": "photos/Юля.jpg" // или Юля.jpg
+}
+
+// ---------- Музыка без кнопки ----------
+const bgMusic = document.getElementById('bgMusic');
+let musicPlaying = false;
+let musicPausedByVideo = false;
+
+bgMusic.volume = 0.02;
+
+function startMusic() {
+  if (!musicPlaying) {
+    bgMusic.play()
+      .then(() => {
+        musicPlaying = true;
+      })
+      .catch(e => console.log("Не удалось запустить музыку:", e));
+  }
+}
+
+// При первом клике по странице запускаем музыку
+document.body.addEventListener('click', function initMusic() {
+  startMusic();
+  document.body.removeEventListener('click', initMusic);
+}, { once: true });
+
+// ---------- Обработчики для видео ----------
+const profileVideo = document.getElementById('profileVideo');
+
+function handleVideoPlay() {
+  if (musicPlaying) {
+    bgMusic.pause();
+    musicPlaying = false;
+    musicPausedByVideo = true;
+  }
+}
+
+function handleVideoPause() {
+  if (musicPausedByVideo && !musicPlaying) {
+    bgMusic.play()
+      .then(() => {
+        musicPlaying = true;
+        musicPausedByVideo = false;
+      })
+      .catch(e => console.log('Не удалось возобновить музыку'));
+  }
+}
+
+function handleVideoEnded() {
+  handleVideoPause();
+}
+
+function attachVideoListeners() {
+  profileVideo.addEventListener('play', handleVideoPlay);
+  profileVideo.addEventListener('pause', handleVideoPause);
+  profileVideo.addEventListener('ended', handleVideoEnded);
+}
+
+function detachVideoListeners() {
+  profileVideo.removeEventListener('play', handleVideoPlay);
+  profileVideo.removeEventListener('pause', handleVideoPause);
+  profileVideo.removeEventListener('ended', handleVideoEnded);
+}
+
+// ---------- Основная логика ----------
+const container = document.getElementById('cards');
+const mainPage = document.getElementById('mainPage');
+const profilePage = document.getElementById('profilePage');
+const profileName = document.getElementById('profileName');
+const personalWish = document.getElementById('personalWish');
+
+// Создаём карточки с фотографиями
+girls.forEach(name => {
+  const card = document.createElement('div');
+  card.className = 'card liquidGlass';
+
+  // Добавляем аватар с фоновым изображением, если есть фото
+  const avatarDiv = document.createElement('div');
+  avatarDiv.className = 'avatar';
+  const photoPath = photoSources[name];
+  if (photoPath) {
+    avatarDiv.style.backgroundImage = `url('${photoPath}')`;
+    avatarDiv.style.backgroundSize = 'cover';
+    avatarDiv.style.backgroundPosition = 'center';
+  } else {
+    // Если фото нет, останется розовый градиент (уже прописан в CSS)
+  }
+
+  const nameHeading = document.createElement('h3');
+  nameHeading.textContent = name;
+
+  card.appendChild(avatarDiv);
+  card.appendChild(nameHeading);
+  card.onclick = () => openProfile(name);
+  container.appendChild(card);
+});
+
+function showWish() {
+  const w = wishes[Math.floor(Math.random() * wishes.length)];
+  document.getElementById('wish').innerText = w;
+  createFlowers();
+}
+
+function openProfile(name) {
+  mainPage.classList.add('hidden');
+  profilePage.classList.remove('hidden');
+
+  profileName.innerText = name;
+  personalWish.innerText = personalWishes[name] || "Пусть эта весна принесёт много радости и вдохновения 🌸";
+
+  const videoFile = videoSources[name];
+  if (videoFile) {
+    detachVideoListeners();
+    profileVideo.src = videoFile;
+    profileVideo.load();
+    attachVideoListeners();
+  } else {
+    profileVideo.src = "";
+  }
+
+  giftStep = 0;
+  document.getElementById('giftText').innerText = "Нажми на кнопку, чтобы узнать где подарок...";
+}
+
+function goBack() {
+  profileVideo.pause();
+  detachVideoListeners();
+  profileVideo.removeAttribute('src');
+  profileVideo.load();
+
+  profilePage.classList.add('hidden');
+  mainPage.classList.remove('hidden');
+}
+
+// Игра с подсказками
+let giftStep = 0;
+const giftMessages = [
+  "Думаешь всё так просто? 😉",
+  "Хорошо... дам маленькую подсказку",
+  "Подарок уже ждёт тебя",
+  "Он находится совсем рядом",
+  "Посмотри вокруг внимательнее",
+  "Место где обычно хранят вещи...",
+  "Догадалась?",
+  "Правильно — он в шкафу 🎁"
+];
+
+function showGift() {
+  const text = document.getElementById('giftText');
+  if (giftStep < giftMessages.length) {
+    text.innerText = giftMessages[giftStep];
+    giftStep++;
+  } else {
+    text.innerText = "Ну всё, подсказка уже была 😄 Иди проверяй шкаф!";
+  }
+  createFlowers();
+}
+
+// Цветы
+function createFlowers() {
+  for (let i = 0; i < 14; i++) {
+    const flower = document.createElement('div');
+    flower.className = 'flower';
+    flower.innerHTML = "🌸";
+    flower.style.left = Math.random() * 100 + "vw";
+    flower.style.animationDuration = (Math.random() * 3 + 3) + "s";
+    document.body.appendChild(flower);
+    setTimeout(() => flower.remove(), 6000);
+  }
+}
+setInterval(() => createFlowers(), 5000);
+
+</script>
+
+</body>
+</html>
